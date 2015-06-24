@@ -20,9 +20,10 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
 	def get(self):
-		items = self.request.get_all("food")
-		concepts = [['test1', 'this is the first test'],
-					['test2', 'this is the second test']]
+		items = self.request.get_all("comments")
+		concepts = [['Understanding of Servers', 'A browser speaks to the server through http to request documents.  There are two types of classifications of responses that a server will do.  Static and Dynamic.  Static is pre written files images that the server will return.  Dynamic requests are responses built on the fly by a program called web applications that is running.  Most content online is dynamic today.  Web application is a program that generates content that a browser requests (ex. Facebook page, blog pages, and google search results). Two commonly used methods for a request-response between a client and server are: GET and POST. GET requests data from a specified resource.  POST submits data to be processed to a specified resource.'],
+					['Importance of Validating Input', 'Verify the user input. When you get an input error, render form again.  Should always include an error message.'],
+					['HTML Templates and Abstraction', 'A template library is a library to build complicate strings.  Jinja2 is a template library that is built into Google App Engine.']]
 					
 		self.render("HTML_Notes.html", items = items, concepts = concepts)
 				

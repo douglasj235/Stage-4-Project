@@ -3,11 +3,22 @@
 {% block content %}
 
 <form>
-	<h2>Add a Food</h2>
-	<input type="text" name="food">
+	{% if concepts %}
+   		<h2>Stage 4 Notes</h2>
+   		<ul>
+      		{% for concept in concepts %}
+   				<li><b>Topic:</b>  {{concept[0]}}, <br><b>Description:</b>  {{concept[1]}}</li>
+			{% endfor %}
+   		</ul>
+	{% endif %}
+
+	
+
+	<h2>Post your comments</h2>
+	<input type="text" name="comments">
 	{% if items %}
 		{% for item in items %}
-			<input type="hidden" name="food" value="{{item}}">
+			<input type="hidden" name="comments" value="{{item}}">
 		{% endfor %}
 	{% endif %}		
 	<button>Add</button>
@@ -16,7 +27,7 @@
 		<br>
 		<br>
 
-		<h2>Shopping List</h2>
+		<h2>Posts</h2>
 		<ul>
 			{% for item in items %}
 				<li>{{ item }}</li>
